@@ -1,2 +1,18 @@
-<h1>Developers intersted in world domination</h1>
-<p>Find me in app/views/developers/index.html.erb</p>
+<h1>Developers intersted in world domination:</h1>
+
+<table>
+  <tbody>
+    <% @developers.each do |developer| %>
+    <tr>
+      <td><%= developer.email %></td>
+      <td><%= developer.hours_worked %></td>
+      <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
+      <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a new developer', new_developer_path %>

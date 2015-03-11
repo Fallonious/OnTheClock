@@ -1,0 +1,24 @@
+<%= form_for(@developer) do |f| %>
+  <% if @developers.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@developers.errors.count, "error") %> prohibited this bank_account from being saved:</h2>
+    </div>
+    <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<!-- <%= link_to 'Delete this developer', @developer, method: :delete, data: { confirm: 'Are you sure?' } %> -->
