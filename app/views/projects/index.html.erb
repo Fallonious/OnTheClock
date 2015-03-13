@@ -1,36 +1,19 @@
-<h1>All the projects worth considering</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
-
-
-
-<h1>Project List</h1>
+<h1>All the projects worth considering:</h1>
+<h3>Project List & Max Hours Alloted</h3>
 
 <table>
-  <thead>
-    <tr>
-      <th>Project Name</th>
-      <th>Project Description</th>
-      <th>Hours Alloted</th>
-      <th>Hours Worked</th>
-      <th>Time Remaining?</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @projects.each do |project| %>
     <tr>
-      <td><%= project.transaction_on %></td>
-      <td><%= bank_account.item_description %></td>
-      <td><%= bank_account.transaction_amount %></td>
-      <td><%= link_to 'Show', bank_account %></td>
-      <td><%= link_to 'Edit', edit_bank_account_path(bank_account) %></td>
-      <td><%= link_to 'Destroy', bank_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= project.name %></td>
+      <td><%= project.max_hours %></td>
+      <td><%= link_to 'Edit', edit_project_path(project) %></td>
+      <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Enter New Transaction', new_bank_account_path %>
+<p><%= link_to 'Add New Project', new_project_path %></p>
+<p><%= link_to 'View all timesheets', time_entries_path %></p>
+<p><%= link_to 'Create a new developer', new_developer_path %></p>

@@ -1,0 +1,32 @@
+<%= form_for(@time_entry) do |f| %>
+<% if @time_entry.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@time_entry.errors.count, "error") %> prohibited this time entry from being saved:</h2>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :duration_to_the_quarter_hour %><br>
+  <%= f.number_field :duration %>
+</div>
+
+<div class="field">
+  <%= f.label :project_id %><br>
+  <%= f.number_field :project_id %>
+</div>
+
+<div class="field">
+  <%= f.label :your_developer_id %><br>
+  <%= f.number_field :developer_id %>
+</div>
+
+<div class="field">
+  <%= f.label :worked_on %><br>
+  <%= f.date_field :worked_on %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

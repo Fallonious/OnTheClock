@@ -1,2 +1,22 @@
-<h1>TimeEntries#index</h1>
-<p>Find me in app/views/time_entries/index.html.erb</p>
+<h1>All Time Entries</h1>
+
+
+<table>
+  <tbody>
+    <% @time_entries.each do |time| %>
+    <tr>
+      <td><%= time.duration %></td>
+      <td><%= time.project.name %></td>
+      <td><%= time.developer.email %></td>
+      <td><%= time.worked_on %></td>
+      <td><%= link_to 'Edit', edit_time_entry_path(time) %></td>
+      <td><%= link_to 'Destroy', time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add New Time Project', new_time_entry_path %>
+
+
+<%= link_to 'Return to the Project home page', projects_path %>

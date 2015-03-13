@@ -1,5 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :check_logged_in
+  before_action :set_developer, only: [:show, :edit, :update, :destroy]
 
   def index
     @developers = Developer.all
@@ -29,7 +30,7 @@ class DevelopersController < ApplicationController
   def update
     respond_to do |format|
       if @developer.update(developer_params)
-        format.html { redirect_to @developer, notice: 'Bank account was successfully updated.' }
+        format.html { redirect_to @developer, notice: 'Developer was successfully updated.' }
         format.json { render :show, status: :ok, location: @developer }
       else
         format.html { render :edit }
@@ -41,7 +42,7 @@ class DevelopersController < ApplicationController
   def destroy
     @developer.destroy
     respond_to do |format|
-      format.html { redirect_to developers_url, notice: 'developer was successfully destroyed.' }
+      format.html { redirect_to developers_url, notice: 'Developer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -54,6 +55,10 @@ class DevelopersController < ApplicationController
   end
 
   private def developer_params
-    params.require(:developer).permit(:name, :email, :password)
+    params.require(:developer).permit(:email, :password)
+  end
+
+  private def set_developer
+    @developer = Developer.find_by_id(params[:id])
   end
 end

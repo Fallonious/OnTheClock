@@ -1,2 +1,8 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1>Project Information</h1>
+
+
+<h4>Project Name</h4>
+<p><%= @project.name %></p>
+<h4>Max hours allotted</h4>
+<p><%= @project.max_hours %></p>
+<%= link_to 'Return to Project List', projects_path  %>

@@ -3,7 +3,6 @@ class LoginsController < ApplicationController
 
   def new
   end
-
   def create
     developer = Developer.find_by_email(params[:email])
     if developer && developer.authenticate(params[:password])
